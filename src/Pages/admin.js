@@ -9,10 +9,10 @@ class Admin extends Component {
 
   state = {
     inventory: [],
-    name: '',
-    price: '',
-    image: '',
-    id: '',
+    name: 'Item Name',
+    price: 'Item Price',
+    image: 'Image/URL',
+    _id: '',
   }
 
   handleChange = (e) => {
@@ -36,6 +36,38 @@ editItem = (_id) => () => {
   })
 }
 
+addItem = (name, price, image) => () =>  {
+  return fetch('http://localhost:5000/items', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      price: price,
+      image: image,
+  })
+})
+.then(response => response.json())
+.then(response => {
+  this.setState({
+    inventory: [...this.state.inventory, response]
+  })
+})
+}
+
+deleteItem = (_id) => () => {
+return fetch(`http://localhost:5000/items/${_id}`, {
+  method: 'DELETE',
+})
+.then(() => getItems())
+.then(response => {
+  this.setState({
+    inventory: response
+  })
+})
+}
+
 
   componentDidMount() {
     getItems()
@@ -49,14 +81,14 @@ editItem = (_id) => () => {
   render() {
     return (
       <Col>
-      
-        <Col>
-            <Input name={this.state.name} placeholder={this.state.name} onChange={this.handleChange} ></Input>
-            <Input name={this.state.price} placeholder={this.state.price} onChange={this.handleChange} ></Input>
-            <Input name={this.state.image} placeholder={this.state.image} onChange={this.handleChange} ></Input>
+         <Col>
+            <Input name='name' placeholder={this.state.name} onChange={this.handleChange}  ></Input>
+            <Input name='price'   placeholder={this.state.price} onChange={this.handleChange} ></Input>
+            <Input name='image'  placeholder={this.state.image} onChange={this.handleChange} ></Input>
         </Col>
         <Row style={{alignSelf:'center', margin:10}}>
-          <Button color='green'>Update</Button>
+          <Button color='blue'>Update</Button>
+          <Button onClick={this.addItem(this.state.name, this.state.price, this.state.image)} color='green'>Add Item</Button>
         </Row>
         <Row >
           <ul style={{ display: 'flex', flexWrap: 'wrap', listStyleType: 'none', }} >
@@ -65,7 +97,8 @@ editItem = (_id) => () => {
                 {name} <br />
                 {price}
                 <img style={{ width: 150, height: 100 }} src={image}></img>
-                <Button color='white' onClick={this.editItem(_id)}>Edit Item</Button>
+                <Button color='blue' onClick={this.editItem(_id)}>Edit Item</Button>
+                <Button onClick={this.deleteItem(_id)} color='red'>Delete item</Button>
               </li>
             ))}
           </ul>

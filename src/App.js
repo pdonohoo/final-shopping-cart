@@ -11,12 +11,12 @@ import { Row } from './Components/row';
 class App extends Component {
   render() {
     return (
-      <div style={{ backgroundColor: 'gray', }}>
+      <div >
         <div>
 
           <Router>
-            <Row style={{ justifyContent: 'space-between' }}>
-              <h1 style={{ color: '#fd5e53' }}>
+            <Row style={{ backgroundColor: 'black', justifyContent: 'space-between' }}>
+              <h1 style={{  color: '#fd5e53' }}>
                 Shopaholics Annonymous
               </h1>
               <ul style={{ listStyleType: 'none', }}>

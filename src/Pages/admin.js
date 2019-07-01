@@ -32,6 +32,7 @@ editItem = (_id) => () => {
       name: response.name,
       price: response.price,
       image: response.image,
+      _id: response._id,
     })
   })
 }
@@ -68,6 +69,30 @@ return fetch(`http://localhost:5000/items/${_id}`, {
 })
 }
 
+updateDBItem = (_id, name, price, image) => () => {
+return fetch(`http://localhost:5000/items/${_id}`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: name,
+    price: price,
+    image: image
+  })
+})
+.then(() => getItems())
+.then( inventory => {
+  this.setState({
+    inventory
+  })
+  this.setState({
+    name: 'Item Name',
+    price: 'Item Price',
+    image: 'Image URL'
+  })
+})
+}
 
   componentDidMount() {
     getItems()
@@ -79,15 +104,20 @@ return fetch(`http://localhost:5000/items/${_id}`, {
   }
 
   render() {
+    // let {name} = this.state.name;
+    // let {price} = this.state.price;
+    // let {image} = this.state.image;
+    // let {_id} = this.state._id;
     return (
       <Col>
          <Col>
+         <div> {this.state._id} </div>
             <Input name='name' placeholder={this.state.name} onChange={this.handleChange}  ></Input>
             <Input name='price'   placeholder={this.state.price} onChange={this.handleChange} ></Input>
             <Input name='image'  placeholder={this.state.image} onChange={this.handleChange} ></Input>
         </Col>
         <Row style={{alignSelf:'center', margin:10}}>
-          <Button color='blue'>Update</Button>
+          <Button onClick={this.updateDBItem(this.state._id, this.state.name, this.state.price, this.state.image)} color='blue'>Update</Button>
           <Button onClick={this.addItem(this.state.name, this.state.price, this.state.image)} color='green'>Add Item</Button>
         </Row>
         <Row >

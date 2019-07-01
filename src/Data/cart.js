@@ -8,9 +8,9 @@ export default ({cartItems, deleteFromCart}) =>
           My Cart
         </h1>
         <div>
-          <ul>
+          <ul style={{display: 'flex', flexDirection:'wrap', flexWrap: 'wrap'}}>
             {cartItems.map(({name, image, price, _id}) => (
-              <li style={{ flexDirection: 'column', height: 'relative', width: 150, marginLeft: 20, marginTop: 10, marginBottom:10, textAlign: 'center', display: 'flex', backgroundColor: 'white' }}>
+              <li style={{ flexDirection: 'column', height: 'relative', width: 150, marginLeft: 20, marginTop: 10, marginBottom:10, textAlign: 'center', display: 'flex', backgroundColor: 'white', justifyContent: 'row' }}>
                 {name}
                 <img style={{ width: 150, height: 100 }} src={image}></img>
                 {price}

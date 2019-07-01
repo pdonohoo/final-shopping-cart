@@ -60,21 +60,21 @@ deleteFromCart = (_id) => () => {
 
   render() {
     return (
-      <div style={{ backgroundColor: 'gray', display: 'flex', }}>
+      <div>
         <div >
-          <ul style={{ display: 'flex', flexWrap: 'wrap', listStyleType: 'none', }}>
+          <ul style={{ display: 'flex', flexWrap: 'wrap', listStyleType: 'none',  }}>
             {this.state.inventory.map(({ name, image, price, _id }) => (
-              <li style={{ flexDirection: 'column', height: 'relative', width: 150, marginLeft: 20, marginTop: 10, marginBottom:10, textAlign: 'center', display: 'flex', backgroundColor: 'white' }}>
+              <li style={{ flexDirection: 'column', height: 'relative', width: 225, marginLeft: 20, marginTop: 10, marginBottom:10, textAlign: 'center', display: 'flex', }}>
                 {name} <br />
                 {price}
-                <img style={{ width: 150, height: 100 }} src={image}></img>
+                <img style={{ width: 225, height: 150 }} src={image}></img>
                 <Button onClick={this.addToCart(name, image, price, _id)} color='white'>Add to cart</Button>
               </li>
             ))}
           </ul>
         </div>
-        <div style={{ width: 500, textAlign:'center' }}>
-          <Cart cartItems={this.state.cart} deleteFromCart={this.deleteFromCart}/>
+        <div style={{textAlign: 'center'}}>
+          <Cart style={{justifyContent: 'row'}} cartItems={this.state.cart} deleteFromCart={this.deleteFromCart}/>
         </div>
       </div>
     )

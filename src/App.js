@@ -3,10 +3,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button } from './Components/button';
 import Home from './Pages/home';
-import Cart from './Data/cart';
 import Admin from './Pages/admin';
-import { Col } from './Components/col';
 import { Row } from './Components/row';
+import Register from './Pages/register';
+import Login from './Pages/login';
 
 class App extends Component {
   render() {
@@ -24,16 +24,19 @@ class App extends Component {
                 <li>
                   <Link to='/'>Home</Link>
                 </li>
-
-
                 <li>
-                  <Link to='/Admin'>Admin</Link>
+                  <Link to='/admin'>Admin</Link>
+                </li>
+                <li>
+                  <Link to='/register'>Register</Link>
                 </li>
 
               </ul>
             </Row>
-            <Route path='/' exact component={Home}></Route>
-            <Route path='/Admin' exact component={Admin}></Route>
+            <Route exact path='/' exact component={Home}></Route>
+            <Route path='/admin' component={Admin}></Route>
+            <Route path='/register' component={Register}></Route>
+            <Route path='/login' component={Login}></Route>
           </Router>
         </div>
       </div>

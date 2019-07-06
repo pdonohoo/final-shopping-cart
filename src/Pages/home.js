@@ -11,24 +11,25 @@ class Home extends Component {
   }
 
 addToCart = (name, image, price, _id) => () => {
-  return fetch('http://localhost:5000/cart',{
-    method: 'Post',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: name,
-      image: image,
-      price: price,
-      id: _id
+    return fetch('http://localhost:5000/cart',{
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        image: image,
+        price: price,
+        id: _id
+      })
     })
-  })
-  .then(response => response.json())
-  .then(response => {
-    this.setState({
-      cart: [...this.state.cart, response]
-    })
-  })
+    .then(response => response.json())
+    .then(response => {
+      this.setState({
+        cart: [...this.state.cart, response]
+      })
+    }) 
+      
 }
 
 deleteFromCart = (_id) => () => {
@@ -50,6 +51,7 @@ deleteFromCart = (_id) => () => {
         inventory
         })
       })
+    
       getCart()
       .then(cart => {
         this.setState({

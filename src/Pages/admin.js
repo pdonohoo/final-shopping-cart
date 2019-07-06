@@ -114,9 +114,10 @@ class Admin extends Component {
 
     let user = JSON.parse(localStorage.getItem('user'))
     this.setState({
-      user: user,
+      user,
       loading: false,
     })
+    console.log(user)
   }
 
   render() {

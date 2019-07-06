@@ -27,7 +27,7 @@ export class Login extends Component {
      this.setState({
        user
      })
-    }).catch((err) => {console.log(err)})
+    }).catch((err) => {alert('Invalid credentials try again')})
   }
 
   handleChange = (e) => {
@@ -41,6 +41,7 @@ export class Login extends Component {
     this.setState({
       user
     })
+    console.log(user, 'this is user')
   }
 
 

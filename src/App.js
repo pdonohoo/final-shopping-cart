@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Button } from './Components/button';
 import Home from './Pages/home';
 import Admin from './Pages/admin';
 import { Row } from './Components/row';
@@ -14,14 +13,14 @@ class App extends Component {
       <div >
         <div>
 
-          <Router>
-            <Row style={{ backgroundColor: 'black', justifyContent: 'space-between' }}>
-              <h1 style={{  color: '#fd5e53' }}>
+          <Router >
+            <Row style={{ backgroundColor: 'black', justifyContent: 'space-between', textDecoration:'none' }}>
+              <h1 style={{  color: 'white' }}>
                 Shopaholics Annonymous
               </h1>
-              <ul style={{ listStyleType: 'none', }}>
+              <ul style={{ listStyleType: 'none'}} >
 
-                <li>
+                <li >
                   <Link to='/'>Home</Link>
                 </li>
                 <li>
@@ -33,7 +32,7 @@ class App extends Component {
 
               </ul>
             </Row>
-            <Route exact path='/' exact component={Home}></Route>
+            <Route  exact path='/' exact component={Home}></Route>
             <Route path='/admin' component={Admin}></Route>
             <Route path='/register' component={Register}></Route>
             <Route path='/login' component={Login}></Route>

@@ -27,7 +27,7 @@ class Admin extends Component {
 
 
   editItem = (_id) => () => {
-    return fetch(`${apiUrl}${_id}`, {
+    return fetch(`${apiUrl}items/${_id}`, {
     })
       .then(response => response.json())
       .then(response => {
@@ -62,7 +62,7 @@ class Admin extends Component {
   }
 
   deleteItem = (_id) => () => {
-    return fetch(`${apiUrl}${_id}`, {
+    return fetch(`${apiUrl}items/${_id}`, {
       method: 'DELETE',
     })
       .then(() => getItems())

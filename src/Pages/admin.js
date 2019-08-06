@@ -5,6 +5,7 @@ import { Input } from '../Components/input';
 import { getItems } from '../Data/inventory';
 import { Button } from '../Components/button';
 import { Redirect } from "react-router-dom";
+import { apiUrl } from '../config'
 
 class Admin extends Component {
 
@@ -26,7 +27,7 @@ class Admin extends Component {
 
 
   editItem = (_id) => () => {
-    return fetch(`http://localhost:5000/items/${_id}`, {
+    return fetch(`${apiUrl}${_id}`, {
     })
       .then(response => response.json())
       .then(response => {
@@ -41,7 +42,7 @@ class Admin extends Component {
   }
 
   addItem = (name, price, image) => () => {
-    return fetch('http://localhost:5000/items', {
+    return fetch(`${apiUrl}items`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -61,7 +62,7 @@ class Admin extends Component {
   }
 
   deleteItem = (_id) => () => {
-    return fetch(`http://localhost:5000/items/${_id}`, {
+    return fetch(`${apiUrl}${_id}`, {
       method: 'DELETE',
     })
       .then(() => getItems())
@@ -73,7 +74,7 @@ class Admin extends Component {
   }
 
   updateDBItem = (_id, name, price, image) => () => {
-    return fetch(`http://localhost:5000/items/${_id}`, {
+    return fetch(`${apiUrl}${_id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

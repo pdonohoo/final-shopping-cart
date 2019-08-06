@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom";
-import { Button } from '../Components/button'
+import { Button } from '../Components/button';
+import { apiUrl } from '../config'
 
 export class Login extends Component {
 
@@ -12,7 +13,7 @@ export class Login extends Component {
 
   verifyUser = (e) => {
     e.preventDefault();
-     return fetch('http://localhost:5000/login', {
+     return fetch(`${apiUrl}login`, {
       method: 'Post',
       headers: {
         'Content-Type': 'application/json'

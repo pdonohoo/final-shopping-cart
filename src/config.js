@@ -1,0 +1,1 @@
+export const apiUrl = 'https://final-shopping-cart-api.herokuapp.com/'

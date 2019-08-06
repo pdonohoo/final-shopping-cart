@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from '../Components/button';
 import { getItems, getCart } from '../Data/inventory';
 import Cart from '../Data/cart';
+import { apiUrl } from '../config'
 
 class Home extends Component {
 
@@ -10,8 +11,8 @@ class Home extends Component {
     cart: []
   }
 
-addToCart = (name, image, price, _id) => () => {
-    return fetch('http://localhost:5000/cart',{
+addToCart = (name, image, price, _id) => () => { 
+    return fetch(`${apiUrl}cart`,{
       method: 'Post',
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +34,7 @@ addToCart = (name, image, price, _id) => () => {
 }
 
 deleteFromCart = (_id) => () => {
-  return fetch(`http://localhost:5000/cart/${_id}`, {
+  return fetch(`${apiUrl}cart/${_id}`, {
     method: 'DELETE',
   })
   .then(() => getCart()

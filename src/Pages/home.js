@@ -46,6 +46,7 @@ deleteFromCart = (_id) => () => {
 }
 
   componentDidMount() {
+
     getItems()
       .then(inventory => {
         this.setState({
@@ -59,6 +60,7 @@ deleteFromCart = (_id) => () => {
           cart
         })
       })
+      
   }
 
   render() {

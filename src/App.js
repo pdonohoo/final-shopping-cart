@@ -18,16 +18,16 @@ class App extends Component {
               <h1 style={{  color: 'white' }}>
                 Shopaholics Annonymous
               </h1>
-              <ul style={{ listStyleType: 'none'}} >
+              <ul style={{ listStyleType: 'none', display: 'flex'}} >
 
-                <li >
-                  <Link to='/'>Home</Link>
+                <li style={{paddingRight: '5px', paddingTop:'12px'}} >
+                  <Link style={{color: 'white', textDecoration:'none' }} to='/'>Home</Link>
                 </li>
-                <li>
-                  <Link to='/admin'>Admin</Link>
+                <li style={{paddingRight: '5px' , paddingTop:'12px'}}>
+                  <Link style={{color: 'white', textDecoration:'none' }} to='/admin'>Admin</Link>
                 </li>
-                <li>
-                  <Link to='/register'>Register</Link>
+                <li style={{paddingRight: '5px' , paddingTop:'12px'}}>
+                  <Link style={{color: 'white', textDecoration:'none',  }} to='/register'>Register</Link>
                 </li>
 
               </ul>

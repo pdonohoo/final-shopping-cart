@@ -74,7 +74,7 @@ class Admin extends Component {
   }
 
   updateDBItem = (_id, name, price, image) => () => {
-    return fetch(`${apiUrl}${_id}`, {
+    return fetch(`${apiUrl}items/${_id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

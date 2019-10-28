@@ -145,7 +145,7 @@ class Admin extends Component {
                 <li style={{ flexDirection: 'column', height: 'relative', width: 150, marginLeft: 20, marginTop: 10, marginBottom: 10, textAlign: 'center', display: 'flex', backgroundColor: 'white' }} >
                   {name} <br />
                   {price}
-                  <img style={{ width: 150, height: 100 }} src={image}></img>
+                  <img style={{ width: 150, height: 100 }} src={image} alt=''></img>
                   <Button color='blue' onClick={this.editItem(_id)}>Edit Item</Button>
                   <Button onClick={this.deleteItem(_id)} color='red'>Delete item</Button>
                 </li>

@@ -32,7 +32,7 @@ class App extends Component {
 
               </ul>
             </Row>
-            <Route  exact path='/' exact component={Home}></Route>
+            <Route  exact path='/' component={Home}></Route>
             <Route path='/admin' component={Admin}></Route>
             <Route path='/register' component={Register}></Route>
             <Route path='/login' component={Login}></Route>

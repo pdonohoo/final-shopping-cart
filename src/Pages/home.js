@@ -32,7 +32,7 @@ addToCart = (name, image, price, _id) => () => {
     }) 
       
 }
-
+r
 deleteFromCart = (_id) => () => {
   return fetch(`${apiUrl}cart/${_id}`, {
     method: 'DELETE',
@@ -67,12 +67,14 @@ deleteFromCart = (_id) => () => {
     return (
       <div>
         <div >
+        {console.log('console log inventory', this.state.inventory)}
           <ul style={{ display: 'flex', flexWrap: 'wrap', listStyleType: 'none',  }}>
+          
             {this.state.inventory.map(({ name, image, price, _id }) => (
-              <li style={{ flexDirection: 'column', height: 'relative', width: 225, marginLeft: 20, marginTop: 10, marginBottom:10, textAlign: 'center', display: 'flex', }}>
+              <li key={_id} style={{ flexDirection: 'column', height: 'relative', width: 225, marginLeft: 20, marginTop: 10, marginBottom:10, textAlign: 'center', display: 'flex', }}>
                 {name} <br />
                 {price}
-                <img style={{ width: 225, height: 150 }} src={image}></img>
+                <img style={{ width: 225, height: 150 }} src={image} alt=''></img>
                 <Button onClick={this.addToCart(name, image, price, _id)} color='white'>Add to cart</Button>
               </li>
             ))}

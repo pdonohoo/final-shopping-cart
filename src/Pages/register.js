@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button } from '../Components/button';
 
 export class Register extends Component {
@@ -27,8 +26,7 @@ export class Register extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userName: this.state.userName,
-        password: this.state.password
+        user
       })
     })
   
